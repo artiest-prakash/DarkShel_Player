@@ -18,7 +18,9 @@ jobs:
           node-version: 18
 
       - name: Install Dependencies
-        run: npm install
+        run: |
+          if (Test-Path package-lock.json) { Remove-Item package-lock.json }
+          npm install
 
       - name: Build React and Electron App
         run: npm run electron:build
