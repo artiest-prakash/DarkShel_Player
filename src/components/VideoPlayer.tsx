@@ -208,7 +208,8 @@ export function VideoPlayer({ onOpenClick }: { onOpenClick?: () => void }) {
     // In a real Electron app with cast support, ipcRenderer would be used.
     try {
       if ("presentation" in navigator && navigator.presentation) {
-        const request = new PresentationRequest(["cast://"]);
+        const PresentationRequestConstructor = (window as any).PresentationRequest;
+        const request = new PresentationRequestConstructor(["cast://"]);
         await request.start();
       } else {
         alert(
@@ -385,7 +386,7 @@ export function VideoPlayer({ onOpenClick }: { onOpenClick?: () => void }) {
               </div>
 
               <div className="space-y-3">
-                {Object.entries(watchHistory)
+                {(Object.entries(watchHistory) as [string, any][])
                   .sort((a, b) => b[1].lastWatched - a[1].lastWatched)
                   .map(([name, progress]) => (
                     <div
