@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0b0c10;
+  --color-panel: #15161e;
+  --color-panel-hover: #1e1f2b;
+  --color-primary: #5c41ff;
+  --color-primary-hover: #4a34cc;
+  --color-primary-light: #7c66ff;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-white font-sans overflow-hidden select-none;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  /* Custom Range Slider for progress/volume */
+  input[type=range] {
+    @apply appearance-none bg-transparent;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    @apply appearance-none w-3 h-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)] cursor-pointer translate-y-[calc(-50%+2px)];
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    @apply w-full h-[4px] cursor-pointer rounded-full bg-white/20;
+  }
+}

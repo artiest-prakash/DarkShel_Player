@@ -1,0 +1,6 @@
+{
+  "name": "Darkshel Player",
+  "description": "Premium Windows Video Player built with React and Electron, featuring highly polished Liquid Glass UI and cross-platform native playback.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
